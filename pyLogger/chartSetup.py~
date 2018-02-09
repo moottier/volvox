@@ -1,0 +1,18 @@
+from sqlLogin import mysqlConnect, cur, cnx
+import numpy as np
+import matplotlib.pyplot as plt
+
+def getData():
+    cur.execute('SELECT datetime, temperature, humidity from dhtlogger')
+    data = cur.fetchall()
+    cur.close()
+    cnx.close()
+    return data
+
+def parseData(data):
+    data = dict(data)
+    return data
+
+def makeGraph(data):
+    plt.plot(data, '.')
+    return
