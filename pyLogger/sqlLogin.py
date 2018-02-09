@@ -1,8 +1,9 @@
 import mysql.connector
+from config import pwd
 
 def sqlexec(query = None, data = None):
     try:
-        cnx = mysql.connector.connect(user='shared', password='nyxpluto', database='volvox')
+        cnx = mysql.connector.connect(user='shared', password=pwd, database='volvox')
         err = None
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
